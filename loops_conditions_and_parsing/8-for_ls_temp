@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#write a Write a Bash script that displays:The content of the current directory
+
+	
+	
+ls > files.txt
+LIST=$(cat files.txt)
+for file in $LIST 
+do 
+	grep ^"[[:digit:]]-" "$file" | cut -d "-" -f2
+done
