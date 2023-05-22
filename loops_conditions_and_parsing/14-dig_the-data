@@ -4,4 +4,4 @@
 
 log_file="apache-access.log"
 
-awk '{count[$1" "$9]++} END {for (key in count) {printf "%-5s %-15s %-5s\n", count[key], substr(key, 1, index(key, " ") - 1), substr(key, index(key, " ") + 1)}}' "$log_file" | sort -rn | sed -E 's/^ +//'
+awk '{count[$1" "$9]++} END {for (key in count) {printf "%-4s %-16s %-4s\n", count[key], substr(key, 1, index(key, " ") - 1), substr(key, index(key, " ") + 1)}}' "$log_file" | sort -rn | sed -E 's/^ +//'
