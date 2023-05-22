@@ -8,4 +8,6 @@
 8-for_ls
 filenames.txt
 files.txt
+mytest
 README.md
+testing

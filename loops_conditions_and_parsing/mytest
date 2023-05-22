@@ -1,0 +1,6 @@
+#!/usr/bin/bash/env bash
+#this file is a test
+for file in $(ls)
+do 
+	echo "$(file)"
+done
