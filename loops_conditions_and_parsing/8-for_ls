@@ -4,5 +4,7 @@
 LIST=$(ls)
 for file in $LIST 
 do 
-	grep ^"[[:digit:]]-" "$file" | cut -d "-" -f2
+	varout=$(grep ^"[[:digit:]]-" "$file" | cut -d "-" -f2)
+	echo "$varout"
+	
 done
