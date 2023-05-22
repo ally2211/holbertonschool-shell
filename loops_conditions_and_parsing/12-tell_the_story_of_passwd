@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays the content of the file /etc/passwd, using the while loop + IFS.
+
+file="/etc/passwd"
+
+while IFS=: read -r username _ userid groupid _ name home shell; do
+    echo "The user $username is part of the $groupid gang, lives in $home, and rides $shell."
+    echo "User $userid's place is protected by the passcode $name."
+    echo "More info about the user $userid here: USER ID INFO"
+    echo
+done < "$file"
+
