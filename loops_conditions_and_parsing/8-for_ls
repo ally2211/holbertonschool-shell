@@ -4,6 +4,6 @@
 LIST=$(ls)
 for file in $LIST 
 do 
-	[ ! -f $file ] && continue
+	[ ! -f "$file" ] && continue
 	grep ^[[:digit:]]- "$file" | cut -d "-" -f2
 done
