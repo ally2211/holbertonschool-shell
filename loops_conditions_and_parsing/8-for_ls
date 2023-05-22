@@ -5,5 +5,5 @@ ls > files.txt
 LIST=$(cat files.txt)
 for file in $LIST 
 do 
-	grep ^[[:digit:]]- $file | cut -d "-" -f2
+	grep ^[[:digit:]]- "$file" | cut -d "-" -f2
 done
