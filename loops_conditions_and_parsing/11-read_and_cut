@@ -3,10 +3,11 @@
 
 file="/etc/passwd"
 
-while IFS=: read -r username _ userid _ _ home _; do
-    echo "Username: $username"
-    echo "User ID: $userid"
-    echo "Home Directory: $home"
-    echo
-done < "$file"
+#!/bin/bash
 
+while IFS=: read -r username password userid groupid userdesc homedir shell; do
+    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell."
+    echo "User $userid's place is protected by the passcode $password."
+    echo "More info about the user here: $userdesc"
+done < /etc/passwd
+#done < "$file"
