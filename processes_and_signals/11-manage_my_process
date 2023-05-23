@@ -35,9 +35,9 @@ restart() {
 
     pid=$(cat "$PID_FILE")
     kill "$pid"
-    "$MANAGE_MY_PROCESS_SCRIPT" &
+    ./"$MANAGE_MY_PROCESS_SCRIPT" &
     echo $! > "$PID_FILE"
-    echo ./"manage_my_process restarted"
+    echo "manage_my_process restarted"
 }
 
 case "$1" in
