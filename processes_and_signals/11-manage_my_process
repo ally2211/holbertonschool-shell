@@ -28,8 +28,13 @@ stop() {
 }
 
 restart() {
-    stop
-    start
+#stop
+    pid=$(cat "$PID_FILE")
+    kill "$pid"
+    rm "$PID_FILE"
+#start
+    ./"$MANAGE_MY_PROCESS_SCRIPT"
+    
     echo "manage_my_process restarted"
 }
 
