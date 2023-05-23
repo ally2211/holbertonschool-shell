@@ -23,6 +23,7 @@ stop() {
 
     pid=$(cat "$PID_FILE")
     kill "$pid"
+    sudo killall -SIGTERM "manage_my_process"
     rm "$PID_FILE"
     echo "manage_my_process stopped"
 }
