@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# write a Bash script that groups visitors by IP and HTTP status code, and displays this data.
-#!/bin/bash
-
-log_file="apache-access.log"
-
-awk '{count[$1" "$9]++} END {for (key in count) {print count[key], substr(key, 1, index(key, " ") - 1), substr(key, index(key, " ") + 1)}}' "$log_file" | sort -rn | sed -E 's/^ +//'
