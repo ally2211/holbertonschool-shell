@@ -28,14 +28,16 @@ stop() {
 }
 
 restart() {
-#stop
+    if [[ ! -f "$PID_FILE" ]]; then
+        echo "manage_my_process is not running."
+        exit 1
+    fi
+
     pid=$(cat "$PID_FILE")
     kill "$pid"
-    rm "$PID_FILE"
-#start
-    ./"$MANAGE_MY_PROCESS_SCRIPT"
-    
-    echo "manage_my_process restarted"
+    ./"$MANAGE_MY_PROCESS_SCRIPT" &
+    echo $! > "$PID_FILE"
+    echo "manage_my_process is restarted."
 }
 
 case "$1" in
