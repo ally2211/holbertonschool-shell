@@ -6,31 +6,31 @@ MANAGE_MY_PROCESS_SCRIPT="manage_my_process"
 
 start() {
     if [[ -f "$PID_FILE" ]]; then
-        echo "manage_my_process is already started."
+        echo "manage_my_process is already started"
         exit 1
     fi
 
     ./"$MANAGE_MY_PROCESS_SCRIPT" &
     echo $! > "$PID_FILE"
-    echo "manage_my_process started."
+    echo "manage_my_process started"
 }
 
 stop() {
     if [[ ! -f "$PID_FILE" ]]; then
-        echo "manage_my_process is not running."
+        echo "manage_my_process is not running"
         exit 1
     fi
 
     pid=$(cat "$PID_FILE")
     kill "$pid"
     rm "$PID_FILE"
-    echo "manage_my_process stopped."
+    echo "manage_my_process stopped"
 }
 
 restart() {
     stop
     start
-    echo "manage_my_process restarted."
+    echo "manage_my_process restarted"
 }
 
 case "$1" in
