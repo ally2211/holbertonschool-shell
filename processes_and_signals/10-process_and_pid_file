@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays To infinity and beyond with sleep 2
+#!/bin/bash
+
+pidfile="/var/run/myscript.pid"
+
+# Create PID file
+echo $$ > "$pidfile"
+
+# Signal handlers
+handle_sigterm() {
+    echo "I hate the kill command"
+}
+
+handle_sigint() {
+    echo "Y U no love me?!"
+}
+
+handle_sigquit() {
+    echo "Y U no love me?!"
+    rm "$pidfile"
+    exit
+}
+
+# Set signal handlers
+trap handle_sigterm SIGTERM
+trap handle_sigint SIGINT
+trap handle_sigquit SIGQUIT
+
+# Main loop
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
+
