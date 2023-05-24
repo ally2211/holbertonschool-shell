@@ -2,4 +2,4 @@
 #Write a Bash script that displays To infinity and beyond with sleep 2
 #sudo killall -SIGTERM "7-highlander"
 PID=$(pgrep -f "7-highlander")
-kill "$PID"
+kill INT "$PID"
