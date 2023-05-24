@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #Write a Bash script that displays To infinity and beyond with sleep 2
-sudo killall -SIGTERM "7-highlander"
+#sudo killall -SIGTERM "7-highlander"
+echo $$ > "$PID"
+pkill "$PID"
